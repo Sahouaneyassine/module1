@@ -7,6 +7,6 @@ variable "person" {
   }
   validation {
     error_message = "Value Must  contain only numbers."
-    condition =  can( regex("/^\d+$/",element(var.person, 2)) )
+    condition =  can( regex("^\d+$",element(var.person, 2)) )
   }
 }
