@@ -19,5 +19,6 @@ This module will help us transform a Liste ( Name ,LastName ,PhoneNum ) to anoth
 module "module1" {
   source             = "git@github.com:Sahouaneyassine/module1.git"
   person = ["yassine","sahouane","0654587"]
+  }
   
 ```
