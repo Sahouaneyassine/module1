@@ -1,44 +1,23 @@
-# Terraform `mod-azurerm-resource-group` module
-
-Create Azure Resource Group following CHANEL Azure Cloud Governance framework
-
+# Terraform `module1` module
 ## Why?
 
-CHANEL Azure Cloud Governance defines a set of pratices and requirements to be enforced over the deployed ressources.
-
-This module will help to maintain and ensure that this set defined from GBL Governance definition is made available on all deployed ressources.
+This module will help us transform a Liste ( Name ,LastName ,PhoneNum ) to another list which will contains only (Name, PhoneNum) .
 
 ## Arguments
 
-- `project`                 - (String) Project technical name
-- `region`                  - (String) Resource deployment region
-- `environment`             - (String) Resource deployment environment
-- `location`                - (String) Azure Region where Resource Group will be deployed
-- `tags`                    - (String) Chanel Azure Governance TAGS (map(any)) - mod-azure-gov-tags module should be used
+- `person`                 - (List) Contains the details of the person (Prenom,Nom,PhoneNum) ?
 
-- `name`                    - (String) source group name (only when enforced)
 
 ## Outputs
 
-- `id`                      - (String) Resource Group id
-- `name`                    - (String) Resource Group Name
-- `location`                - (String) Azure Region where Resource Group has been deployed
+- `list_converted`           - (List) The Person List details  converted :
+
 
 ## Example
 
 ```hcl-terraform
-module "mod-azurerm-resource-group" {
-  source = "git@ssh.dev.azure.com:v3/lpl-sources/Terraform/mod-azurerm-resource-group"
-
-  project     = var.project
-  region      = var.region
-  environment = var.environment  
-  location    = var.location
-  tags        = var.tags
-}
-
-# Get resource group reference elsewhere
-locals {
-  resource_group_id = "${module.mod-azurerm-resource-group.id}"
-}
+module "module1" {
+  source             = "git@github.com:Sahouaneyassine/module1.git"
+  person = ["yassine","sahouane","0654587"]
+  
 ```
